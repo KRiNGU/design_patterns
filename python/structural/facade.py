@@ -19,13 +19,13 @@ class ClientInterface(ABC):
         pass
 
 
-class Adapter(ClientInterface):
+class Facade(ClientInterface):
     operators = Operators()
 
     def get_hypotenuse(self, leg1, leg2):
         return int(self.operators.sqrt(self.operators.sum(self.operators.mul(leg1, leg1), self.operators.mul(leg2, leg2))))
 
 
-hypotenuse_calc: ClientInterface = Adapter()
+hypotenuse_calc: ClientInterface = Facade()
 hypotenuse = hypotenuse_calc.get_hypotenuse(3, 4)
 print(hypotenuse)
